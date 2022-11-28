@@ -5,10 +5,10 @@ public class Main {
 
     public static void main(String[] args)
     {
-        checkPrime(num_input());
+        checkOnPrime(numInput());
     }
 
-    public static int num_input() {
+    public static int numInput() {
         Scanner in = new Scanner(System.in);
         boolean check = true;
         Integer n = null;
@@ -30,16 +30,16 @@ public class Main {
         return n;
     }
 
-    public static void checkPrime(int num) {
+    public static void checkOnPrime(int num) {
         ArrayList<Integer> arrayList = new ArrayList<>();
         for (int i = 2; i <= num; i++) {
-            boolean check_Prime = true;
+            boolean checkPrime = true;
             for (int j = 2; j < i; j++) {
                 if(i % j == 0){
-                    check_Prime = false;
+                    checkPrime = false;
                     break;}
             }
-            if(check_Prime)
+            if(checkPrime)
                 arrayList.add(i);
         }
         if (arrayList.size() > 0) {

@@ -1,21 +1,18 @@
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        double first = num_input();
-        String math_operation = input_operation();
-        double second = num_input();
-        double result = result(first, second, math_operation);
-        System.out.printf("%f %s %f = %f", first, math_operation, second, result);
+        double first = numInput();
+        String mathOperation = inputOperation();
+        double second = numInput();
+        double result = result(first, second, mathOperation);
+        System.out.printf("%f %s %f = %f", first, mathOperation, second, result);
     }
 
-    public static String input_operation() {
+    public static String inputOperation() {
         boolean check = true;
-        Integer res = null;
         String math_operation = null;
 
         while (check) {
@@ -33,26 +30,26 @@ public class Main {
         return math_operation;
     }
 
-    public static double result(double first, double second, String math_operation) {
+    public static double result(double first, double second, String mathOperation) {
         Double res = null;
-        switch (math_operation) {
+        switch (mathOperation) {
             case ("+"):
-                res = num_sum(first, second);
+                res = numSum(first, second);
                 break;
             case ("-"):
-                res = num_sub(first, second);
+                res = numSub(first, second);
                 break;
             case ("/"):
-                res = num_div(first, second);
+                res = numDiv(first, second);
                 break;
             case ("*"):
-                res = num_mul(first, second);
+                res = numMul(first, second);
                 break;
         }
         return res;
     }
 
-    public static double num_input() {
+    public static double numInput() {
         Scanner in = new Scanner(System.in);
         boolean check = true;
         Double n = null;
@@ -69,19 +66,19 @@ public class Main {
         return n;
     }
 
-        public static double num_sum ( double first, double second){
+        public static double numSum ( double first, double second){
             return first + second;
         }
 
-        public static double num_sub ( double first, double second){
+        public static double numSub ( double first, double second){
             return first - second;
         }
 
-        public static double num_div ( double first, double second){
+        public static double numDiv ( double first, double second){
             return first / second;
         }
 
-        public static double num_mul ( double first, double second){
+        public static double numMul ( double first, double second){
             return first * second;
         }
 }

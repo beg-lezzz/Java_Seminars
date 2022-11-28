@@ -3,13 +3,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)
     {
-        int num = num_input();
-        System.out.printf("Сумма чисел от 1 до %d = %d\n", num, n_sum(num));
-        System.out.printf("Произведение чисел от 1 до %d = %d\n", num, n_factorial(num));
-        n_factorial(num);
+        int num = numInput();
+        System.out.printf("Сумма чисел от 1 до %d = %d\n", num, nSum(num));
+        System.out.printf("Произведение чисел от 1 до %d = %d\n", num, nFactorial(num));
+        nFactorial(num);
     }
 
-    public static int num_input() {
+    public static int numInput() {
         Scanner in = new Scanner(System.in);
         boolean check = true;
         Integer n = null;
@@ -31,17 +31,17 @@ public class Main {
         return n;
     }
 
-    public static int n_sum(Integer args) {
+    public static int nSum(Integer args) {
         int sum = args * (args + 1) / 2;
 
         return sum;
     }
 
-    public static int n_factorial(int args) {
+    public static int nFactorial(int args) {
         if (args == 1 || args == 0) {
             return 1;
         }
 
-        return args * n_factorial(args - 1);
+        return args * nFactorial(args - 1);
     }
 }
