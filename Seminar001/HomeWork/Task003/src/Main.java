@@ -66,19 +66,19 @@ public class Main {
         return n;
     }
 
-        public static double numSum ( double first, double second){
+    public static double numSum ( double first, double second){
             return first + second;
-        }
+    }
 
-        public static double numSub ( double first, double second){
+    public static double numSub ( double first, double second){
             return first - second;
-        }
+    }
 
-        public static double numDiv ( double first, double second){
+    public static double numDiv ( double first, double second){
             return first / second;
-        }
+    }
 
-        public static double numMul ( double first, double second){
+    public static double numMul ( double first, double second){
             return first * second;
-        }
+    }
 }
