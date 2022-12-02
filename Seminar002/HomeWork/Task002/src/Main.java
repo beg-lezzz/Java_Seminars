@@ -8,18 +8,18 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 
 public class Main {
-    private static FileWriter fileWriter;
+    private static FileWriter writer;
 
     public static void main(String[] args) throws IOException {
         try {
             File logger = new File("bubbleSort.log");
             logger.createNewFile();
-            fileWriter = new FileWriter(logger);
+            writer = new FileWriter(logger);
             Integer[] ARRAY = {5, 29, 45, 0, -1};
             bubbleSort(ARRAY);
         }
         catch (Exception e) {e.getLocalizedMessage();}
-        finally {fileWriter.close();}
+        finally {writer.close();}
     }
 
     public static void bubbleSort(Integer[] inputArray) throws IOException {
@@ -42,7 +42,7 @@ public class Main {
         StringBuilder logString = new StringBuilder();
         logString.append(i).append(" <=> ").append(j).append(" ===> ").append(Arrays.toString(inputArray));
         try {
-            fileWriter.append(String.valueOf(LocalDateTime.now())).append(" ").append(String.valueOf(logString)).append("\n");
+            writer.append(String.valueOf(LocalDateTime.now())).append(" ").append(String.valueOf(logString)).append("\n");
         } catch (Exception e) {e.getLocalizedMessage();}
     }
 }
