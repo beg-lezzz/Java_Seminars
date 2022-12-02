@@ -56,16 +56,9 @@ public class Main {
 
         try {
             Files.write(path, logMessage.getBytes(), StandardOpenOption.APPEND);
-//            System.out.println("Это успех. Все ходы записаны.");
         } catch (IOException e) {
             System.out.println("Упс. Что-то пошло не так. Лог не записан.");
             e.printStackTrace();
         }
-
-//        StringBuilder logString = new StringBuilder();
-//        logString.append(i).append(" <=> ").append(j).append(" ===> ").append(Arrays.toString(inputArray));
-//        try {
-//            writer.append(String.valueOf(LocalDateTime.now())).append(" ").append(String.valueOf(logString)).append("\n");
-//        } catch (Exception e) {e.getLocalizedMessage();}
     }
 }
