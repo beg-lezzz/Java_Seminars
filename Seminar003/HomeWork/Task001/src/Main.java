@@ -23,7 +23,6 @@ public class Main {
             Thread.sleep(50);
         }
         System.out.print(" 100% ");
-//        System.out.println("\n\nОтлично. Метод выбран. Скоро покажем результаты.");
         Thread.sleep(500);
     }
 
