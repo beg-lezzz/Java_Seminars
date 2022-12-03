@@ -12,7 +12,6 @@ public class Main {
         System.out.printf("\nЕще немного магии Хогвартса и массив отсортирован методом слияния: \n%s\n", Arrays.toString(mergeSort(arr)));
         Thread.sleep(3000);
         answerInput();
-//        System.out.println("\nВы еще пытаетесь сравнивть массивы? Не стыдно перепроверять магию Хогвартса?");
     }
 
     private static void loadImitation(String magicFor) throws InterruptedException {
