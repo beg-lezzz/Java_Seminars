@@ -62,7 +62,7 @@ public class Main {
                     System.out.println("Стыдно не доверять магии Хонвартса.");
                     check = false;
                 } else if (n.equalsIgnoreCase("N")) {
-                    System.out.println("Вот это правильно. Магии Хонвартса нельзя не доверять.");
+                    System.out.println("Вот это правильно. Магии Хогвартса нельзя не доверять.");
                     check = false;
                 } else {
                     System.out.println("Стоп! Давайте еще разок попробуем. " +
