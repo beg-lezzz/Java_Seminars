@@ -6,20 +6,42 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         LinkedList<Integer> rndList = randomListCreate(numInput("Введите число элементов случайного списка (целое, больше 0): ", 0));
         printResult(rndList.toString(), "Исходный односвязный список: ");
+
         int numForAdd = numInput("Введите число для добавления в список (целое): ", 1);
         enqueue(rndList, numForAdd);
         printResult(rndList.toString(), "После добавления в конец списка числа " + numForAdd + ": ");
-        printResult(dequeue(rndList).toString(), "Удален первый элемент = ");
+
+        Integer afterDel = dequeue(rndList);
+        String afterDelMessage = "";
+        if (afterDel == null){
+            afterDelMessage = "Первый элемент отсутствует";
+        } else {
+            afterDelMessage = afterDel.toString();
+        }
+        printResult(afterDelMessage, "Удален первый элемент = ");
         printResult(rndList.toString(), "Список после удаления первого элемента: ");
-        printResult(first(rndList).toString(), "Первый элемент = ");
+        String firstElement = first(rndList) == null ? "[]" : first(rndList).toString();
+        printResult(firstElement, "Первый элемент = ");
     }
 
     private static Integer first(LinkedList<Integer> inputList) {
-        return inputList.get(0);
+        Integer firstElement = null;
+        try {
+            firstElement = inputList.get(0);
+        } catch (IndexOutOfBoundsException e){
+            System.out.println("Список пуст");
+        }
+        return firstElement;
     }
 
     private static Integer dequeue(LinkedList<Integer> inputList) {
-        return inputList.remove(0);
+        Integer delElement = null;
+        try {
+            delElement = inputList.remove(0);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Список пуст");
+        }
+        return delElement;
     }
 
     private static void enqueue(LinkedList<Integer> inputList, Integer element) {
