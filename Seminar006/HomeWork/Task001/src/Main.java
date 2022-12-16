@@ -28,13 +28,7 @@ public class Main {
 
         NoteBook[] noteBooks = new NoteBook[]{noteBook1, noteBook2, noteBook3, noteBook4, noteBook5, noteBook6, noteBook7, noteBook8, noteBook9, noteBook10, noteBook11};
 
-
-
-//        System.out.println(NoteBook.getByRam(noteBooks, 512, 1024));
-//        System.out.println(NoteBook.getByOS(noteBooks, "Windows 11"));
         userMenu(noteBooks);
-
-
     }
 
     private static void userMenu(NoteBook[] noteBooks) throws InterruptedException {
@@ -52,51 +46,51 @@ public class Main {
                     exit = true;
                     break;
                 case "1":
-                    System.out.println("Введите минимальный объем: ");
+                    System.out.print("Введите минимальный объем: ");
                     int min = Integer.parseInt(in.nextLine());
-                    System.out.println("Введите максимальный объем: ");
+                    System.out.print("Введите максимальный объем: ");
                     int max = Integer.parseInt(in.nextLine());
                     loadImitation();
                     StringBuilder result = NoteBook.getByRam(noteBooks, min, max);
                     if (result.length()>0){
                         System.out.printf("\nНоутбуки с объемом RAM от %d до %d:\n\n%s", min, max, result);
                     } else {
-                        System.out.printf("Ноутбуки с объемом RAM от %d до %d не найдены.\n", min, max);
+                        System.out.printf("\nНоутбуки с объемом RAM от %d до %d не найдены.\n", min, max);
                     }
                     break;
                 case "2":
-                    System.out.println("Введите минимальный объем: ");
+                    System.out.print("Введите минимальный объем: ");
                     min = Integer.parseInt(in.nextLine());
-                    System.out.println("Введите максимальный объем: ");
+                    System.out.print("Введите максимальный объем: ");
                     max = Integer.parseInt(in.nextLine());
                     loadImitation();
                     result = NoteBook.getByHD(noteBooks, min, max);
                     if (result.length()>0){
                         System.out.printf("\nНоутбуки с объемом HDD от %d до %d:\n\n%s", min, max, result);
                     } else {
-                        System.out.printf("Ноутбуки с объемом HDD от %d до %d не найдены.\n", min, max);
+                        System.out.printf("\nНоутбуки с объемом HDD от %d до %d не найдены.\n", min, max);
                     }
                     break;
                 case "3":
-                    System.out.println("Введите цвет: ");
+                    System.out.print("Введите цвет: ");
                     String colour = in.nextLine();
                     loadImitation();
                     result = NoteBook.getByColour(noteBooks, colour);
                     if (result.length()>0){
                         System.out.printf("\nНоутбуки цвета %s:\n\n%s", colour, result);
                     } else {
-                        System.out.printf("Ноутбуки цвета %s не найдены.\n", colour);
+                        System.out.printf("\nНоутбуки цвета %s не найдены.\n", colour);
                     }
                     break;
                 case "4":
-                    System.out.println("Введите операцтонную систему: ");
+                    System.out.print("Введите операцтонную систему: ");
                     String os = in.nextLine();
                     loadImitation();
-                    result = NoteBook.getByColour(noteBooks, os);
+                    result = NoteBook.getByOS(noteBooks, os);
                     if (result.length()>0){
                         System.out.printf("\nНоутбуки с операционной системой %s:\n\n%s", os, result);
                     } else {
-                        System.out.printf("Ноутбуки с операционной системой %s не найдены.\n", os);
+                        System.out.printf("\nНоутбуки с операционной системой %s не найдены.\n", os);
                     }
                     break;
                 default:
@@ -106,7 +100,7 @@ public class Main {
     }
 
     private static void loadImitation() throws InterruptedException {
-        System.out.printf("\nПожалуйста, подождите. Мы работаем над этим.\n");
+        System.out.printf("\nПожалуйста, подождите. Подбираем для Вас лучшие варианты.\n");
         Thread.sleep(500);
         for (int i = 0; i < 60; i++) {
             System.out.print("\u2591");
