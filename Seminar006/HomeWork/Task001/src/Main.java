@@ -46,18 +46,10 @@ public class Main {
                     exit = true;
                     break;
                 case "1":
-                    System.out.print("Введите минимальный объем: ");
-                    int min = Integer.parseInt(in.nextLine());
-                    System.out.print("Введите максимальный объем: ");
-                    int max = Integer.parseInt(in.nextLine());
+                    int[] arrayMinMax = getMinMax();
                     loadImitation();
-                    if (min > max){
-                        max = min + max;
-                        min = max - min;
-                        max = max - min;
-                    }
-                    String condition = min == max ? "= " + min + " Mb" : "от " + min + " Mb до " + max + " Mb";
-                    StringBuilder result = NoteBook.getByRam(noteBooks, min, max);
+                    String condition = arrayMinMax[0] == arrayMinMax[1] ? "= " + arrayMinMax[0] + " Mb" : "от " + arrayMinMax[0] + " Mb до " + arrayMinMax[1] + " Mb";
+                    StringBuilder result = NoteBook.getByRam(noteBooks, arrayMinMax[0], arrayMinMax[1]);
                     if (result.length()>0){
                         System.out.printf("\nНоутбуки с объемом RAM %s:\n\n%s", condition, result);
                     } else {
@@ -65,18 +57,10 @@ public class Main {
                     }
                     break;
                 case "2":
-                    System.out.print("Введите минимальный объем: ");
-                    min = Integer.parseInt(in.nextLine());
-                    System.out.print("Введите максимальный объем: ");
-                    max = Integer.parseInt(in.nextLine());
+                    arrayMinMax = getMinMax();
                     loadImitation();
-                    if (min > max){
-                        max = min + max;
-                        min = max - min;
-                        max = max - min;
-                    }
-                    condition = min == max ? "= " + min + " Gb" : "от " + min + " Gb до " + max + " Gb";
-                    result = NoteBook.getByHD(noteBooks, min, max);
+                    condition = arrayMinMax[0] == arrayMinMax[1] ? "= " + arrayMinMax[0] + " Gb" : "от " + arrayMinMax[0] + " Gb до " + arrayMinMax[1] + " Gb";
+                    result = NoteBook.getByHD(noteBooks, arrayMinMax[0], arrayMinMax[1]);
                     if (result.length()>0){
                         System.out.printf("\nНоутбуки с объемом HDD %s:\n\n%s", condition, result);
                     } else {
@@ -120,5 +104,20 @@ public class Main {
         }
         System.out.print(" 100% \n");
         Thread.sleep(500);
+    }
+
+    private static int[] getMinMax(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите минимальный объем: ");
+        int min = Integer.parseInt(in.nextLine());
+        System.out.print("Введите максимальный объем: ");
+        int max = Integer.parseInt(in.nextLine());
+        if (min > max){
+            max = min + max;
+            min = max - min;
+            max = max - min;
+        }
+        int[] outArray = new int[]{min, max};
+        return outArray;
     }
 }
