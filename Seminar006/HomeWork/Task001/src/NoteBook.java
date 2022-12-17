@@ -18,6 +18,11 @@ public class NoteBook {
 
     public static StringBuilder getByRam(NoteBook[] noteBooks, int min, int max){
         StringBuilder outString = new StringBuilder();
+        if (min > max){
+            max = min + max;
+            min = max - min;
+            max = max - min;
+        }
         for (NoteBook n : noteBooks) {
             if (n.ram >= min && n.ram <=max){
                 outString.append(n).append("\n");
@@ -28,6 +33,11 @@ public class NoteBook {
 
     public static StringBuilder getByHD(NoteBook[] noteBooks, int min, int max){
         StringBuilder outString = new StringBuilder();
+        if (min > max){
+            max = min + max;
+            min = max - min;
+            max = max - min;
+        }
         for (NoteBook n : noteBooks) {
             if (n.volumeHD >= min && n.volumeHD <=max){
                 outString.append(n).append("\n");
@@ -58,8 +68,8 @@ public class NoteBook {
     @Override
     public String toString() {
         return manufacturer + " " + model
-                + ", RAM " + ram
-                + ", HD " + volumeHD
+                + ", RAM " + ram + "Mb "
+                + ", HD " + volumeHD + "Gb "
                 + ", OS " + operationSystem
                 + ", Цвет " + colour;
     }

@@ -51,11 +51,17 @@ public class Main {
                     System.out.print("Введите максимальный объем: ");
                     int max = Integer.parseInt(in.nextLine());
                     loadImitation();
+                    if (min > max){
+                        max = min + max;
+                        min = max - min;
+                        max = max - min;
+                    }
+                    String condition = min == max ? "= " + min + " Mb" : "от " + min + " Mb до " + max + " Mb";
                     StringBuilder result = NoteBook.getByRam(noteBooks, min, max);
                     if (result.length()>0){
-                        System.out.printf("\nНоутбуки с объемом RAM от %d до %d:\n\n%s", min, max, result);
+                        System.out.printf("\nНоутбуки с объемом RAM %s:\n\n%s", condition, result);
                     } else {
-                        System.out.printf("\nНоутбуки с объемом RAM от %d до %d не найдены.\n", min, max);
+                        System.out.printf("\nНоутбуки с объемом RAM %s не найдены.\n", condition);
                     }
                     break;
                 case "2":
@@ -64,11 +70,17 @@ public class Main {
                     System.out.print("Введите максимальный объем: ");
                     max = Integer.parseInt(in.nextLine());
                     loadImitation();
+                    if (min > max){
+                        max = min + max;
+                        min = max - min;
+                        max = max - min;
+                    }
+                    condition = min == max ? "= " + min + " Gb" : "от " + min + " Gb до " + max + " Gb";
                     result = NoteBook.getByHD(noteBooks, min, max);
                     if (result.length()>0){
-                        System.out.printf("\nНоутбуки с объемом HDD от %d до %d:\n\n%s", min, max, result);
+                        System.out.printf("\nНоутбуки с объемом HDD %s:\n\n%s", condition, result);
                     } else {
-                        System.out.printf("\nНоутбуки с объемом HDD от %d до %d не найдены.\n", min, max);
+                        System.out.printf("\nНоутбуки с объемом HDD %s не найдены.\n", condition);
                     }
                     break;
                 case "3":
