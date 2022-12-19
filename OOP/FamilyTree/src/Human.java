@@ -61,16 +61,16 @@ public class Human {
         return this.children;
     }
 
-    enum Gender {
-        Male,
-        Female
-    }
-
     @Override
     public String toString() {
         String genString = gender == Gender.Male ? "муж." : "жен.";
         return  fullName + ", " + genString + ", " + age + " " + agePostfix(age);
 
+    }
+
+    enum Gender {
+        Male,
+        Female
     }
 
     private String agePostfix(int age) {

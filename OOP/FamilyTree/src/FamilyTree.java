@@ -16,8 +16,6 @@ public class FamilyTree {
         this.volume++;
     }
 
-
-
     @Override
     public String toString() {
         StringBuilder humansForPrint = new StringBuilder();
