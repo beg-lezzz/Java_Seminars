@@ -42,7 +42,13 @@ public class FamilyTree {
                 humansForPrint;
     }
 
-
+    public void findByName(String name){
+        for (Human human : this.treeElements) {
+            if (human.getFullName().equalsIgnoreCase(name)) {
+                System.out.println(human);
+            }
+        }
+    }
 
     public static String countPostfix(int num)
     {

@@ -19,8 +19,11 @@ public class Main {
         Ivanov.addHuman(Pavel);
         Ivanov.addHuman(Ivan);
         System.out.println(Ivanov);
-//        System.out.println();
-//        System.out.println(Ivan.getChildren());
+        Olga.setFather(Pavel);
+        System.out.println(Ivanov);
+        Ivanov.findByName("Ivan");
+        System.out.println();
+        System.out.println(Ivan.getChildren());
 //        System.out.println();
 //        System.out.println(Olga.getChildren());
 //        Ivan.setMother(Olga);
