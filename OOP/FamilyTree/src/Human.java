@@ -61,6 +61,29 @@ public class Human {
         return this.children;
     }
 
+    public List<Human> getSistersBrothers(){
+        List<Human> byMother = this.getMother() != null ? this.getMother().getChildren() : null;
+        List<Human> byFather = this.getFather() != null ? this.getFather().getChildren() : null;
+        List<Human> all = new ArrayList<>();
+
+        if (byFather != null) {
+            for (Human human : byFather) {
+                if (!human.getFullName().equals(this.fullName)) {
+                    all.add(human);
+                }
+            }
+        }
+
+        if (byMother != null) {
+            for (Human human : byMother) {
+                if (!human.getFullName().equals(this.fullName)) {
+                    all.add(human);
+                }
+            }
+        }
+        return all;
+    }
+
     @Override
     public String toString() {
         String genString = gender == Gender.Male ? "муж." : "жен.";

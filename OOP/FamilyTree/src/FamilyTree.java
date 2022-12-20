@@ -2,13 +2,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FamilyTree {
-    String name;
-    Integer volume;
-    List<Human> treeElements = new ArrayList<>();
+    private String name;
+    private Integer volume;
+    private List<Human> treeElements = new ArrayList<>();
 
     public FamilyTree(String name) {
         this.name = name;
         this.volume = 0;
+    }
+
+    public FamilyTree(String name, List<Human> humans) {
+        this(name);
+        this.volume = humans.size();
+        for (Human human : humans) {
+            this.treeElements.add(human);
+        }
     }
 
     public void addHuman(Human human){
@@ -30,7 +38,7 @@ public class FamilyTree {
             if (person.getChildren().size() !=0){
                 humansForPrint.append(", дети: ");
                 for (Human child : person.getChildren()) {
-                    humansForPrint.append(child.getFullName()).append(",");
+                    humansForPrint.append(child.getFullName()).append(", ");
                 }
                 humansForPrint.deleteCharAt(humansForPrint.length() - 1);
             } else humansForPrint.append(", дети: Не указано");
