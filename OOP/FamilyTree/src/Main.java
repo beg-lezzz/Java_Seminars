@@ -35,8 +35,11 @@ public class Main {
         System.out.println();
         System.out.println(testTree);
 
+        FileWorker worker = new FileWorker();
+        testTree.setWritable(worker);
+
         testTree.save();
-
-
+        testTree.read();
+        testTree.save();
     }
 }
