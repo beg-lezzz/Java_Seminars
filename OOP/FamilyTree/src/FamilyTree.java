@@ -1,3 +1,9 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,6 +11,8 @@ public class FamilyTree {
     private String name;
     private Integer volume;
     private List<Human> treeElements = new ArrayList<>();
+
+    private Writable filehandler;
 
     public FamilyTree(String name) {
         this.name = name;
@@ -22,6 +30,33 @@ public class FamilyTree {
     public void addHuman(Human human){
         this.treeElements.add(human);
         this.volume++;
+
+//        List<Human> byMother = human.getMother() != null ? human.getMother().getChildren() : null;
+//        List<Human> byFather = human.getFather() != null ? human.getFather().getChildren() : null;
+//
+//        if (byFather != null) {
+//            int flag = 0;
+//            for (Human hum : byFather) {
+//                if (hum.getFullName().equals(human.getFullName())) {
+//                    flag++;
+//                }
+//            }
+//            if (flag != 0){
+//                human.getFather().addChild();
+//            }
+//        }
+//
+//        if (byMother != null) {
+//            int flag = 0;
+//            for (Human hum : byMother) {
+//                if (hum.getFullName().equals(human.getFullName())) {
+//                    flag++;
+//                }
+//            }
+//            if (flag != 0){
+//                human.getMother().addChild();
+//            }
+//        }
     }
 
     @Override
@@ -40,7 +75,7 @@ public class FamilyTree {
                 for (Human child : person.getChildren()) {
                     humansForPrint.append(child.getFullName()).append(", ");
                 }
-                humansForPrint.deleteCharAt(humansForPrint.length() - 1);
+                humansForPrint.deleteCharAt(humansForPrint.length() - 2);
             } else humansForPrint.append(", дети: Не указано");
         }
         return "Семейное дерево " + name +
@@ -54,6 +89,39 @@ public class FamilyTree {
                 System.out.println(human);
             }
         }
+    }
+
+    public void save() throws IOException {
+        try {
+            File tree = new File("calc.log");
+            tree.createNewFile();
+        } catch (IOException e) {
+            System.out.println("Упс. Что-то пошло не так. Не удалось обратиться к файлу.");
+            e.printStackTrace();
+        }
+
+        Path path = Paths.get("calc.log");
+        String str = this.toString();
+
+        Files.write(path, str.getBytes(), StandardOpenOption.APPEND);
+
+
+//        if (logType == 1) {
+//            logMessage = LocalDateTime.now() + "\t" + logMessage + "\t(отменено пользователем)" + "\n";
+//        } else {
+//            logMessage = LocalDateTime.now() + "\t" +logMessage + "\n";
+//        }
+//
+//
+//        Path path = Paths.get("calc.log");
+//
+//        try {
+//            Files.write(path, logMessage.getBytes(), StandardOpenOption.APPEND);
+//            System.out.println("\nЭто успех. Все ходы записаны.");
+//        } catch (IOException e) {
+//            System.out.println("Упс. Что-то пошло не так. Лог не записан.");
+//            e.printStackTrace();
+//        }
     }
 
     public static String countPostfix(int num)
